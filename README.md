@@ -1,2 +1,3 @@
-"# NyanCat1" 
-# NyanCat1
+"# NyanCat" 
+# NyanCat-Game
+# Try to eat all the poptarts without dying
