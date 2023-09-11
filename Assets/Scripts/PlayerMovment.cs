@@ -54,7 +54,7 @@ public class PlayerMovment : MonoBehaviour {
             rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
-    private void OnEnbale()
+    private void OnEnable()
     {
         attack.action.started += Attack;
     }

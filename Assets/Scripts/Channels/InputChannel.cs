@@ -12,8 +12,8 @@ public class InputChannel : MonoBehaviour {
        if (playerControls == null)
     {
         playerControls = new PlayerControls();
-     // playerControls.Gameplay.SetCallbacks(this); 
-      //playerControls.Enable();
+        playerControls.Gameplay.SetCallbacks(this); 
+        playerControls.Enable();
     }
     }
 
@@ -45,7 +45,7 @@ public class InputChannel : MonoBehaviour {
 
     private void HandleShootEvent()
     {
-    //  Instantiate(projectilePrefab, transform.position, transform.rotation);
+        Instantiate(projectilePrefab, transform.position, transform.rotation);
     }
     private void HandleShootCancelledEvent()
     {
