@@ -1,42 +1,24 @@
 {
-    "name": "InputActions",
+    "name": "Movement",
     "maps": [
         {
             "name": "Player",
-            "id": "21759869-2c3a-4ef8-adeb-7b952fe254c1",
+            "id": "8599b80a-36e0-404b-b95d-24675f0b2805",
             "actions": [
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "ed4e0599-77ea-4a58-9bfc-905dee67473c",
+                    "id": "c9e401bc-dd4b-4b93-b664-c1da7183d2e2",
                     "expectedControlType": "Vector2",
                     "processors": "StickDeadzone",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Attack",
-                    "type": "Button",
-                    "id": "2246c9c6-8969-4c89-9405-f57b5dbc879c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Button",
-                    "type": "Button",
-                    "id": "f4a5bf54-a3ea-4827-b3aa-a9cda8e0b2cf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "a9d04d87-d64b-495d-92fc-726f72318ea0",
+                    "name": "Keyboard",
+                    "id": "2a9d406a-177d-4ae9-b5dc-80a25a0f1eea",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -47,7 +29,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "4e6afdb7-69d5-42b2-8284-89cc40fac412",
+                    "id": "edf801d7-fcaa-42fb-a9fa-766665f50d92",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
@@ -58,29 +40,29 @@
                 },
                 {
                     "name": "down",
-                    "id": "b50d292c-a015-45b9-a47d-bae75a7a61e0",
+                    "id": "8753b6b0-2066-4358-a5dc-e5d21f7a326e",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "ad2b3678-c673-48a3-a933-b6f92b838652",
+                    "id": "28cace01-8ee8-4a67-9c09-d3d57569ed53",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "92d011bd-43a0-4c31-aca9-3cd5b88749de",
+                    "id": "eb3ac448-032d-4033-9e47-362f8389deed",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
@@ -88,44 +70,11 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "d62408e4-2987-43d8-8b38-fdce6c92ce56",
-                    "path": "<Keyboard>/space",
-                    "interactions": "Press(behavior=2)",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5e518782-166b-408d-af2c-528ca5eed789",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "Mouse",
-                    "action": "Button",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
     ],
     "controlSchemes": [
-        {
-            "name": "Mouse",
-            "bindingGroup": "Mouse",
-            "devices": [
-                {
-                    "devicePath": "<Mouse>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
         {
             "name": "Keyboard",
             "bindingGroup": "Keyboard",

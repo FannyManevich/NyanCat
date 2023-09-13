@@ -1,54 +1,56 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static Movement;
 
-public class InputChannel : MonoBehaviour {
-    private PlayerControls playerControls;
-    private GameplayInputHandler gameplayInputHandler;
-
-    
+[CreateAssetMenu(fileName ="Input Channel", menuName = "Channels/Input Channel", order = 0 )]
+public class InputChannel : ScriptableObject, IPlayerActions
+{
+    Movement move;   
+    public event Action<Vector2> MoveEvent;
+      
     private void OnEnable()
     {
-       if (playerControls == null)
-    {
-        playerControls = new PlayerControls();
-        playerControls.Gameplay.SetCallbacks(this); 
-        playerControls.Enable();
-    }
+        if (move == null)
+        {
+            move = new Movement();
+            move.Player.SetCallbacks(this);
+            move.Enable();
+        }
     }
 
     private void OnDisable()
     {
-        playerControls.Disable();
+        move.Disable();
     }
 
     private void Awake()
     {
-        gameplayInputHandler = new GameplayInputHandler();
-        gameplayInputHandler.MoveEvent += HandleMoveEvent;
-        gameplayInputHandler.ShootEvent += HandleShootEvent;
-        gameplayInputHandler.ShootCancelledEvent += HandleShootCancelledEvent;
+      //  gameplayInputHandler = new GameplayInputHandler();
+      //  gameplayInputHandler.MoveEvent += HandleMoveEvent;
+       // gameplayInputHandler.ShootEvent += HandleShootEvent;
+      //  gameplayInputHandler.ShootCancelledEvent += HandleShootCancelledEvent;
     }
 
     private void OnDestroy()
     {
-        gameplayInputHandler.MoveEvent -= HandleMoveEvent;
-        gameplayInputHandler.ShootEvent -= HandleShootEvent;
-        gameplayInputHandler.ShootCancelledEvent -= HandleShootCancelledEvent;
+     //   gameplayInputHandler.MoveEvent -= HandleMoveEvent;
+       // gameplayInputHandler.ShootEvent -= HandleShootEvent;
+       // gameplayInputHandler.ShootCancelledEvent -= HandleShootCancelledEvent;
     }
 
     private void HandleMoveEvent(Vector2 moveValue)
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = moveValue * 10;
+       // Rigidbody2D rb = GetComponent<Rigidbody2D>();
+       // rb.velocity = moveValue * 10;
     }
 
-    private void HandleShootEvent()
+
+    public void OnMove(InputAction.CallbackContext context)
     {
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
+        Vector2 moveValue = context.ReadValue<Vector2>();
+        MoveEvent?.Invoke(moveValue);
     }
-    private void HandleShootCancelledEvent()
-    {
-        
-    }
+
+  
 }
