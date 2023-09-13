@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // private enum MovementState {walking,catnip,hurt}
     private Rigidbody2D rb;
-    private float moveSpeed = 4.0f;
+    private float moveSpeed = 100.0f;
     private Vector2 moveDirection = Vector2.zero;
 
     InputChannel inputChannel;
@@ -42,7 +41,19 @@ public class PlayerMovement : MonoBehaviour
     private void AddListeners()
     {
         var beacon = FindObjectOfType<BeaconSO>();
+        if (beacon == null)
+        {
+            Debug.LogError("BeaconSO not found!");
+            return;
+        }
+
         inputChannel = beacon.inputChannel;
+        if (inputChannel == null)
+        {
+            Debug.LogError("InputChannel not found in BeaconSO!");
+            return;
+        }
+
         inputChannel.MoveEvent += HandleMovment;
     }
 
@@ -51,7 +62,9 @@ public class PlayerMovement : MonoBehaviour
         Vector2 newPosition = (Vector2)transform.position + moveDirection * moveSpeed * Time.fixedDeltaTime;
         transform.position = newPosition;
 
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        rb.velocity = moveDirection * 100;
+
+
     }
 
     void Update()
@@ -69,8 +82,7 @@ public class PlayerMovement : MonoBehaviour
             addRainbow[i].position = addRainbow[i - 1].position;
         }
     }
-
-   
+  
     private void Grow()
     {
         Transform segment = Instantiate(segmentPrefab);

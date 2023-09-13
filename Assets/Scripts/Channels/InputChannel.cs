@@ -24,30 +24,9 @@ public class InputChannel : ScriptableObject, IPlayerActions
         move.Disable();
     }
 
-    private void Awake()
-    {
-      //  gameplayInputHandler = new GameplayInputHandler();
-      //  gameplayInputHandler.MoveEvent += HandleMoveEvent;
-       // gameplayInputHandler.ShootEvent += HandleShootEvent;
-      //  gameplayInputHandler.ShootCancelledEvent += HandleShootCancelledEvent;
-    }
-
-    private void OnDestroy()
-    {
-     //   gameplayInputHandler.MoveEvent -= HandleMoveEvent;
-       // gameplayInputHandler.ShootEvent -= HandleShootEvent;
-       // gameplayInputHandler.ShootCancelledEvent -= HandleShootCancelledEvent;
-    }
-
-    private void HandleMoveEvent(Vector2 moveValue)
-    {
-       // Rigidbody2D rb = GetComponent<Rigidbody2D>();
-       // rb.velocity = moveValue * 10;
-    }
-
-
     public void OnMove(InputAction.CallbackContext context)
     {
+        Debug.Log(context.phase);   
         Vector2 moveValue = context.ReadValue<Vector2>();
         MoveEvent?.Invoke(moveValue);
     }

@@ -33,7 +33,7 @@ public partial class @Movement : IInputActionCollection2, IDisposable
                     ""id"": ""c9e401bc-dd4b-4b93-b664-c1da7183d2e2"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": ""StickDeadzone"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": true
                 }
             ],
