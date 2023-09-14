@@ -1,30 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour, IPointerClickHandler
+public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] Button button;
     [SerializeField] InputChannel inputChannel;
-    private PlayerInput playerInput;
+ 
     //private bool isPaused = false;
 
     private void Start()
     {
-        playerInput = GetComponent<PlayerInput>();
-        //if (playerInput == null)
-       // {
-          //  Debug.LogError("Player Input component not found.");
-          //  return;
-       // }
-
-        playerInput.actions["Player/Click"].performed += OnClickPerformed;
-
         var beacon = FindObjectOfType<BeaconSO>();
         if (beacon == null)
         {
@@ -43,15 +31,6 @@ public class PauseMenu : MonoBehaviour, IPointerClickHandler
         button.onClick.AddListener(() => Pause());
     }
 
-    private void OnClickPerformed(InputAction.CallbackContext context)
-    {
-        Debug.Log("Mouse Click Detected");
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("UI Element Clicked");
-    }
 
 
     public void Pause()
