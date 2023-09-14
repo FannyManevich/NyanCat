@@ -17,11 +17,11 @@ public class PauseMenu : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
-        if (playerInput == null)
-        {
-            Debug.LogError("Player Input component not found.");
-            return;
-        }
+        //if (playerInput == null)
+       // {
+          //  Debug.LogError("Player Input component not found.");
+          //  return;
+       // }
 
         playerInput.actions["Player/Click"].performed += OnClickPerformed;
 
