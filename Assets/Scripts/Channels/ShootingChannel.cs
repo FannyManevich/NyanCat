@@ -10,8 +10,8 @@ public class ShootingChannel : ScriptableObject, IShootingActions
     public void OnShoot(InputAction.CallbackContext context)
     {
 
-        //if (context.phase == InputActionPhase.Performed)
-      //  {
+      //  if (context.phase == InputActionPhase.Performed)
+       // {
           //  ShootEvent?.Invoke();
        // }
        // if (context.phase == InputActionPhase.Canceled)

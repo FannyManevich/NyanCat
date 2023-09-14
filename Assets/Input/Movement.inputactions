@@ -10,8 +10,17 @@
                     "type": "Value",
                     "id": "c9e401bc-dd4b-4b93-b664-c1da7183d2e2",
                     "expectedControlType": "Vector2",
-                    "processors": "StickDeadzone",
+                    "processors": "",
                     "interactions": "Hold",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Click",
+                    "type": "PassThrough",
+                    "id": "8141024a-f5f2-496f-a378-13978c2a09aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
                     "initialStateCheck": true
                 }
             ],
@@ -44,7 +53,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -55,7 +64,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -70,6 +79,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "45953953-dc4c-4757-b34d-792fcacef030",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -81,6 +101,17 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Mouse",
+            "bindingGroup": "Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }

@@ -408,19 +408,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 45082007}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 880660746}
-        m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
-        m_MethodName: Home
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &45082007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,7 +1189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591956528}
   - component: {fileID: 591956527}
-  - component: {fileID: 591956529}
+  - component: {fileID: 591956530}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1239,7 +1227,7 @@ Transform:
   m_Father: {fileID: 289420882}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &591956529
+--- !u!114 &591956530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1256,18 +1244,18 @@ MonoBehaviour:
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 3bc89056fb061554b9ac7d2d86405d6a, type: 3}
-  m_PointAction: {fileID: 1198867284344427577, guid: 975987ccee090e2409031a04bbdbddda, type: 3}
+  m_PointAction: {fileID: 0}
   m_MoveAction: {fileID: -7229406888774816003, guid: 3bc89056fb061554b9ac7d2d86405d6a, type: 3}
   m_SubmitAction: {fileID: 0}
   m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: -4550344226289482348, guid: 975987ccee090e2409031a04bbdbddda, type: 3}
-  m_MiddleClickAction: {fileID: -4550344226289482348, guid: 975987ccee090e2409031a04bbdbddda, type: 3}
-  m_RightClickAction: {fileID: -4550344226289482348, guid: 975987ccee090e2409031a04bbdbddda, type: 3}
-  m_ScrollWheelAction: {fileID: 1198867284344427577, guid: 975987ccee090e2409031a04bbdbddda, type: 3}
+  m_LeftClickAction: {fileID: -7472259175066099335, guid: 3bc89056fb061554b9ac7d2d86405d6a, type: 3}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
   m_TrackedDevicePositionAction: {fileID: 0}
   m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 2
   m_CursorLockBehavior: 0
 --- !u!1 &749722300
 GameObject:
@@ -1383,6 +1371,7 @@ GameObject:
   - component: {fileID: 832034006}
   - component: {fileID: 832034005}
   - component: {fileID: 832034004}
+  - component: {fileID: 832034008}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1465,6 +1454,7 @@ RectTransform:
   m_Children:
   - {fileID: 880660742}
   - {fileID: 1157388978}
+  - {fileID: 1084270113}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1473,6 +1463,44 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &832034008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832034003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3bc89056fb061554b9ac7d2d86405d6a, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 591956530}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c9e401bc-dd4b-4b93-b664-c1da7183d2e2
+    m_ActionName: Player/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8141024a-f5f2-496f-a378-13978c2a09aa
+    m_ActionName: Player/Click[/Mouse/leftButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 519420031}
 --- !u!1 &880660741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1513,6 @@ GameObject:
   - component: {fileID: 880660745}
   - component: {fileID: 880660744}
   - component: {fileID: 880660743}
-  - component: {fileID: 880660746}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -1538,7 +1565,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.8113208, g: 0.2028302, b: 0.597902, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1557,19 +1584,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 880660744}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 880660746}
-        m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &880660744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,19 +1623,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880660741}
   m_CullTransparentMesh: 1
---- !u!114 &880660746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880660741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c64ca065af067249a9645469e42340a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1084270111}
 --- !u!1 &1035197139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,7 +1709,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1084270113}
-  - component: {fileID: 1084270112}
   m_Layer: 0
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1715,19 +1716,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1084270112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084270111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c64ca065af067249a9645469e42340a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 749722300}
 --- !u!4 &1084270113
 Transform:
   m_ObjectHideFlags: 0
@@ -1735,13 +1723,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084270111}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 564.21124, y: 236.00894, z: -1.9791422}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 147.5363, y: 24.028038, z: -152.84656}
+  m_LocalScale: {x: 1.6617523, y: 1.6617523, z: 1.6617523}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 749722301}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 832034007}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101980235
@@ -2061,6 +2049,7 @@ GameObject:
   - component: {fileID: 1184358647}
   - component: {fileID: 1184358648}
   - component: {fileID: 1184358650}
+  - component: {fileID: 1184358651}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2339,7 +2328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 3bc89056fb061554b9ac7d2d86405d6a, type: 3}
   m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 591956529}
+  m_UIInputModule: {fileID: 591956530}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2351,23 +2340,15 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1184358637}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: c9e401bc-dd4b-4b93-b664-c1da7183d2e2
     m_ActionName: Player/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8141024a-f5f2-496f-a378-13978c2a09aa
+    m_ActionName: Player/Click[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 519420031}
@@ -2490,6 +2471,21 @@ MonoBehaviour:
   - {fileID: 5859758496200764579, guid: 9e6b5185a09c49848856f5e4616244bb, type: 3}
   - {fileID: 5859758496200764579, guid: 9e6b5185a09c49848856f5e4616244bb, type: 3}
   segmentPrefab: {fileID: 5859758496200764579, guid: 9e6b5185a09c49848856f5e4616244bb, type: 3}
+--- !u!114 &1184358651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184358637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c64ca065af067249a9645469e42340a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1084270111}
+  button: {fileID: 880660743}
+  inputChannel: {fileID: 11400000, guid: e22041288802f444192f0fbf892a6f62, type: 2}
 --- !u!1 &1198375590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,19 +2955,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1364268618}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 880660746}
-        m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
-        m_MethodName: Resume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1364268618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3259,7 +3243,7 @@ Transform:
   m_Children:
   - {fileID: 2044166404}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1782925431
 MonoBehaviour:

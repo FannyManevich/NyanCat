@@ -32,8 +32,17 @@ public partial class @Movement : IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""c9e401bc-dd4b-4b93-b664-c1da7183d2e2"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""StickDeadzone"",
+                    ""processors"": """",
                     ""interactions"": ""Hold"",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8141024a-f5f2-496f-a378-13978c2a09aa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": true
                 }
             ],
@@ -66,7 +75,7 @@ public partial class @Movement : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -77,7 +86,7 @@ public partial class @Movement : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -92,6 +101,17 @@ public partial class @Movement : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45953953-dc4c-4757-b34d-792fcacef030"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Mouse"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -107,12 +127,24 @@ public partial class @Movement : IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Mouse"",
+            ""bindingGroup"": ""Mouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -173,11 +205,13 @@ public partial class @Movement : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_Click;
     public struct PlayerActions
     {
         private @Movement m_Wrapper;
         public PlayerActions(@Movement wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @Click => m_Wrapper.m_Player_Click;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -190,6 +224,9 @@ public partial class @Movement : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Click.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClick;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -197,6 +234,9 @@ public partial class @Movement : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
             }
         }
     }
@@ -210,8 +250,18 @@ public partial class @Movement : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
+    private int m_MouseSchemeIndex = -1;
+    public InputControlScheme MouseScheme
+    {
+        get
+        {
+            if (m_MouseSchemeIndex == -1) m_MouseSchemeIndex = asset.FindControlSchemeIndex("Mouse");
+            return asset.controlSchemes[m_MouseSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

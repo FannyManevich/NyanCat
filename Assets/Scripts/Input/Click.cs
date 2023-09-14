@@ -29,11 +29,11 @@ public partial class @Click : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Click"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""f737f16f-2b42-4d2d-8cae-070ce076f6fc"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -42,7 +42,7 @@ public partial class @Click : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""777e822c-9da6-477b-87de-f087fa7bd6c3"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Mouse"",
                     ""action"": ""Click"",
